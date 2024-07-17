@@ -1,0 +1,45 @@
+import nltk
+from nltk.chat.util import Chat, reflections
+
+pairs = [
+    [
+        r"my name is (.*)",
+        ["Hello %1, how are you today?",]
+    ],
+    [
+        r"what is your name?",
+        ["My name is Chatbot and I'm here to help you.",]
+    ],
+    [
+        r"how are you?",
+        ["I'm doing good\nHow about You ?",]
+    ],
+    [
+        r"sorry (.*)",
+        ["It's alright","No problem",]
+    ],
+    [
+        r"(.*) (good|great|fine)",
+        ["Nice to hear that","Alright :)",]
+    ],
+    [
+        r"(.*) age?",
+        ["I'm a computer program :) Seriously, I don't have an age.",]
+    ],
+    [
+        r"quit",
+        ["Bye! Take care. See you soon :) ","It was nice talking to you. Bye!",]
+    ],
+    [
+        r"(.*)",
+        ["Sorry, I didn't get that. Can you please repeat?",]
+    ]
+]
+
+def chatbot():
+    print("Hi, I'm Chatbot! How can I help you today?")
+    chat = Chat(pairs, reflections)
+    chat.converse()
+
+if __name__ == "__main__":
+    chatbot()
